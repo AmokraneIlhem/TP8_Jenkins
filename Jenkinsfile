@@ -1,13 +1,15 @@
 pipeline {
+  agent any
   stages {
-    stage('build') {
+    stage('Build') {
       steps {
-        bat './gradlew build '
+        bat './gradlew build'
         bat './gradlew javadoc'
         archiveArtifacts 'build/libs/*.jar'
         archiveArtifacts 'build/reports/**'
-        mail(subject: 'déploiement nouvelle version  ', body: 'Bonjour, je vous informe que une nouvelle version vient d\'être ajoutée . Cordialement.', to: 'ii_amokrane@esi.dz')
+        mail(subject: 'Deploiement nouvelle version', body: 'Bonjour, Je vous informe qu\'une nouvelle version est disponible sur le github. Cordialement.', to: 'ii_amokrane@esi.dz')
       }
     }
-  } 
+
+  }
 }
