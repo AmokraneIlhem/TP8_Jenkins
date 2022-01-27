@@ -8,16 +8,15 @@ pipeline {
         failure {
   mail(subject: 'Erreur  ', body: 'Bonjour, je vous informe que une nouvelle version vient d\'être ajoutée . Cordialement.', to: 'ii_amokrane@esi.dz')}
 success {
-mail(subject: 'Success  ', body: 'Bonjour, je vous informe que une nouvelle version vient d\'être ajoutée . Cordialement.', to: 'ii_amokrane@esi.dz')}
+mail(subject: 'Success  ', body: 'Bonjour, je vous informe que une nouvelle version vient d\'être ajoutée . Cordialement.', to: 'ii_amokrane@esi.dz')}}
+                bat './gradlew javadoc'
+        archiveArtifacts 'build/libs/*.jar'
+        archiveArtifacts 'build/reports/**'
     }
        }
 
-      steps {
-        bat './gradlew javadoc'
-        archiveArtifacts 'build/libs/*.jar'
-        archiveArtifacts 'build/reports/**'
-      }
+   
     }
 
-  }
+  
 }
