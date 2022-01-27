@@ -9,11 +9,14 @@ pipeline {
         archiveArtifacts 'build/reports/**'
       }
     }
-
-    stage('Mail') {
+    post {
+      always{
+stage('Mail') {
+      
       steps {
-        mail(subject: 'Nouvelle Version', body: 'Bonjour, une nouvelle version vient d\'etre ajoutée . Cordialement', to: 'ii_amokrane@esi.dz')
+        mail(subject: 'Nouvelle Version', body: 'Bonjour, une nouvelle version vient d\'etre ajoutÃ©e . Cordialement', to: 'ii_amokrane@esi.dz')
       }
+}}
     }
 
   }
