@@ -2,7 +2,6 @@
     stage('build') {
       steps {
         bat './gradlew build '
-        bat './gradlew build     '
         bat './gradlew javadoc'
         archiveArtifacts 'build/libs/*.jar'
         archiveArtifacts 'build/reports/**'
