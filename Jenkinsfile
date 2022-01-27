@@ -28,6 +28,11 @@ pipeline {
                     steps {
                         waitForQualityGate abortPipeline: true
                     }
+           post{
+             failure {
+               mail(subject: 'Failed', body: 'Bonjour,Quality Gate Failed. Cordialement.', to: 'ii_amokrane@esi.dz')
+             }
+           }
          }
 
   }
